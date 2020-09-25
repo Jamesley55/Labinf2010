@@ -14,8 +14,9 @@ public class BaseShape implements Cloneable {
 
     // TODO prendre une liste de points et creer une nouvelle forme.
     public BaseShape(Collection<Point2d> coords) {
+        this.coords = new ArrayList<Point2d>();
         for (Point2d point : coords) {
-            this.coords.add(point);
+            add(point);
         }
     }
 
@@ -58,7 +59,7 @@ public class BaseShape implements Cloneable {
     // TODO appliquer la translation sur la forme.
     public BaseShape translate(Point2d point) {
         for (Point2d points : coords) {
-            this.add(points.translate(point));
+            points.translate(point);
         }
         return this;
     }
@@ -66,7 +67,7 @@ public class BaseShape implements Cloneable {
     // TODO appliquer la rotation sur la forme.
     public BaseShape rotate(Double angle) {
         for (Point2d points : coords) {
-            this.add(points.rotate(angle));
+            points.rotate(angle);
         }
         return this;
     }
@@ -110,7 +111,7 @@ public class BaseShape implements Cloneable {
         return new Point2d(coorX, coorY);
     }
 
-    // TODO donner la plus petite valeur en X
+    // TODO donner la plus petite valeur en X (hardcoded)
     public Double getMinX() {
         double coorX= 1.0;
         for (Point2d point : coords) {
@@ -121,7 +122,7 @@ public class BaseShape implements Cloneable {
         }
         return coorX;
     }
-    // TODO donner la plus petite valeur en Y
+    // TODO donner la plus petite valeur en Y (hardcoded)
     public Double getMinY() {
         double coorY = 0.0;
         for (Point2d point : coords) {
