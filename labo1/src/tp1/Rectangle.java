@@ -39,5 +39,5 @@ public class Rectangle extends BaseShape {
     // TODO retourner une nouvelle forme.
     @Override
     public Rectangle clone() {
-        return new Rectangle(this.getCoordsDeepCopy()); }
+        return new Rectangle(getCoordsDeepCopy()); }
 }

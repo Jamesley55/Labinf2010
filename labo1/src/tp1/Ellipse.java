@@ -5,7 +5,7 @@ import java.util.Collection;
 public class Ellipse extends BaseShape {
     // TODO creer une ellipse avec une largeur et une longueur.
     public Ellipse(Double widthRadius, Double heightRadius) {
-        for(int i = 0; i < widthRadius)
+        //for(int i = 0; i < widthRadius)
     }
 
     // TODO creer une ellipse avec les dimensions contenu dans un Point.
@@ -32,5 +32,5 @@ public class Ellipse extends BaseShape {
 
     // TODO retourner une nouvelle forme.
     @Override
-    public Ellipse clone() { return null; }
+    public Ellipse clone() { return new Ellipse(getCoordsDeepCopy()); }
 }
