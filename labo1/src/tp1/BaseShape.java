@@ -116,7 +116,7 @@ public class BaseShape implements Cloneable {
 
     // TODO donner la plus petite valeur en X (hardcoded)
     public Double getMinX() {
-        double coorX= 1.0;
+        double coorX = this.coords.iterator().next().X();
         for (Point2d point : coords) {
             if (coorX > point.X()) {
                 coorX = point.X();
@@ -127,7 +127,7 @@ public class BaseShape implements Cloneable {
     }
     // TODO donner la plus petite valeur en Y (hardcoded)
     public Double getMinY() {
-        double coorY = 0.0;
+        double coorY = this.coords.iterator().next().Y();
         for (Point2d point : coords) {
             if (coorY > point.Y()) {
                 coorY = point.Y();
@@ -139,8 +139,8 @@ public class BaseShape implements Cloneable {
 
     // TODO donner les plus petites valeurs en X et Y
     public Point2d getMinCoord() {
-        double coorX = 1.0;
-        double coorY = 0.0;
+        double coorX = this.coords.iterator().next().X();
+        double coorY = this.coords.iterator().next().Y();
         for (Point2d point : coords) {
             if (coorX > point.X()) {
                 coorX = point.X();
