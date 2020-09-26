@@ -9,7 +9,6 @@ public class BaseShape implements Cloneable {
     // TODO Initialiser la liste de points.
     public BaseShape() {
         coords =  new ArrayList<Point2d>();
-
     }
 
     // TODO prendre une liste de points et creer une nouvelle forme.
@@ -53,7 +52,7 @@ public class BaseShape implements Cloneable {
 
     // TODO retourner une nouvelle liste ou tous les points sont des copy
     public Collection<Point2d> getCoordsDeepCopy() {
-         List<Point2d>newCoords =  new ArrayList<Point2d>();
+        List<Point2d> newCoords =  new ArrayList<Point2d>();
         for (Point2d points : coords) {
             newCoords.add(points.clone());
         }
