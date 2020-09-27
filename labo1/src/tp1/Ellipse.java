@@ -19,7 +19,7 @@ public class Ellipse extends BaseShape {
         //for(int i = 0; i < widthRadius.intValue(); i++){
         //    for(int j = 0; j < heightRadius.intValue(); j++) {
         //        double formula = (Math.pow(i,2)/Math.pow(a,2)) +(Math.pow(j,2)/Math.pow(b,2));
-        //        if(formula < 1){
+        //        if(formula <= 1){
         //            add(new Point2d((double)i,(double)j));
         //        }
         //    }
@@ -35,7 +35,7 @@ public class Ellipse extends BaseShape {
         //for(int i = 0; i < dimensions.X().intValue(); i++){
         //    for(int j = 0; j < dimensions.Y().intValue(); j++) {
         //        double formula = (Math.pow(i,2)/Math.pow(a,2)) +(Math.pow(j,2)/Math.pow(b,2));
-        //        if(formula < 1){
+        //        if(formula <= 1){
         //            add(new Point2d((double)i,(double)j));
         //        }
         //    }
