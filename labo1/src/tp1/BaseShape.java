@@ -4,11 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BaseShape implements Cloneable {
-    private Collection<Point2d> coords;
+    private final Collection<Point2d> coords;
 
     // TODO Initialiser la liste de points.
     public BaseShape() {
-        coords =  new ArrayList<Point2d>();
+        coords = new ArrayList<Point2d>();
     }
 
     // TODO prendre une liste de points et creer une nouvelle forme.
@@ -24,22 +24,27 @@ public class BaseShape implements Cloneable {
         coords.add(coord);
         return this;
     }
+
     public BaseShape add(BaseShape shape) {
         coords.addAll(shape.coords);
         return this;
     }
+
     public BaseShape addAll(Collection<Point2d> coords) {
         this.coords.addAll(coords);
         return this;
     }
+
     public BaseShape remove(Point2d coord) {
         this.coords.remove(coord);
         return this;
     }
+
     public BaseShape remove(BaseShape shape) {
         this.coords.removeAll(shape.coords);
         return this;
     }
+
     public BaseShape removeAll(Collection<Point2d> coords) {
         this.coords.removeAll(coords);
         return this;
@@ -53,11 +58,11 @@ public class BaseShape implements Cloneable {
 
     // TODO retourner une nouvelle liste ou tous les points sont des copy
     public Collection<Point2d> getCoordsDeepCopy() {
-        List<Point2d> newCoords =  new ArrayList<Point2d>();
+        List<Point2d> newCoords = new ArrayList<Point2d>();
         for (Point2d points : coords) {
             newCoords.add(points.clone());
         }
-        return  newCoords;
+        return newCoords;
     }
 
     // TODO appliquer la translation sur la forme.
@@ -126,6 +131,7 @@ public class BaseShape implements Cloneable {
         }
         return coorX;
     }
+
     // TODO donner la plus petite valeur en Y (hardcoded)
     public Double getMinY() {
         double coorY = this.coords.iterator().next().Y();

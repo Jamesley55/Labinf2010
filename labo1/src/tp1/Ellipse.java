@@ -5,12 +5,12 @@ import java.util.Collection;
 public class Ellipse extends BaseShape {
     // TODO creer une ellipse avec une largeur et une longueur.
     public Ellipse(Double widthRadius, Double heightRadius) {
-        Double a  = widthRadius;
+        Double a = widthRadius;
         Double b = heightRadius;
-        for(int i = 0; i < widthRadius.intValue(); i++){
-            for(int j = 0; j < heightRadius.intValue(); j++) {
-                add(new Point2d((double)Math.sqrt((1-(Math.pow(i,2))/Math.pow(a,2))*Math.pow(b,2)),
-                        (double)Math.sqrt((1-(Math.pow(j,2))/Math.pow(b,2))*Math.pow(a,2))));
+        for (int i = 0; i < widthRadius.intValue(); i++) {
+            for (int j = 0; j < heightRadius.intValue(); j++) {
+                add(new Point2d(Math.sqrt((1 - (Math.pow(i, 2)) / Math.pow(a, 2)) * Math.pow(b, 2)),
+                        Math.sqrt((1 - (Math.pow(j, 2)) / Math.pow(b, 2)) * Math.pow(a, 2))));
             }
             //a--;
             //b--;
@@ -64,8 +64,8 @@ public class Ellipse extends BaseShape {
     // TODO retourner une nouvelle forme.
     @Override
     public Ellipse clone() {
-        return(Ellipse) super.clone();
+        return (Ellipse) super.clone();
         //return this;
         //new Ellipse(getCoordsDeepCopy());
-        }
+    }
 }

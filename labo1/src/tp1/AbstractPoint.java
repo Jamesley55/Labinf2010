@@ -11,9 +11,13 @@ public abstract class AbstractPoint implements Comparable<AbstractPoint> {
     }
 
     public abstract AbstractPoint translate(Double[] translateVector);
+
     public abstract AbstractPoint rotate(Double[][] rotationMatrix);
+
     public abstract AbstractPoint divide(Double divider);
+
     public abstract AbstractPoint multiply(Double multiplier);
+
     public abstract AbstractPoint add(Double adder);
 
     @Override
@@ -25,7 +29,7 @@ public abstract class AbstractPoint implements Comparable<AbstractPoint> {
 
     @Override
     public boolean equals(Object o) {
-        Double[] abstractVector = ((AbstractPoint)o).vector;
+        Double[] abstractVector = ((AbstractPoint) o).vector;
         for (int i = 0; i < vector.length; ++i) {
             if (Math.round(vector[i]) - Math.round(abstractVector[i]) != 0) {
                 return false;

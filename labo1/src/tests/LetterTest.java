@@ -8,6 +8,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import tp1.Point2d;
 import tp1.PointOperator;
@@ -43,8 +44,7 @@ public class LetterTest {
         if (!foundEnoughChars) {
             dt.open(tmpFile);
             assertTrue(foundEnoughChars, "Nous ne pouvons pas reconnaitre assez de characteres");
-        }
-        else {
+        } else {
             File imgFile = letterPlacer.saveImage("image", false);
             dt.open(imgFile);
         }

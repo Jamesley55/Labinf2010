@@ -16,7 +16,7 @@ public class Point2dTest {
 
     @Test
     void ctorVector() {
-        Point2d point = new Point2d(new Double[] {1.0, 2.0});
+        Point2d point = new Point2d(new Double[]{1.0, 2.0});
         assertEquals(point.X(), 1.0);
         assertEquals(point.Y(), 2.0);
     }
@@ -31,7 +31,7 @@ public class Point2dTest {
     @Test
     void translateDouble() {
         Point2d point = new Point2d(1.0, 2.0);
-        point.translate(new Double[] {1.0, 1.0});
+        point.translate(new Double[]{1.0, 1.0});
         assertEquals(point, new Point2d(2.0, 3.0));
     }
 

@@ -12,7 +12,7 @@ public class LetterPlacer {
     private final static Integer enlargeFactor = 3;
     private final static Double padding = 20.0;
     private final static Integer maxColor = 256;
-    private Collection<Collection<Point2d>> coordsList;
+    private final Collection<Collection<Point2d>> coordsList;
     private BaseShape previousLetter;
     int numberOfLines;
 
@@ -37,36 +37,47 @@ public class LetterPlacer {
 
     private BaseShape getNextLetter(char letter) throws Exception {
         switch (letter) {
-            case 'C': return LetterFactory.create_C();
-            case 'e': return LetterFactory.create_e();
-            case 'V': return LetterFactory.create_V();
-            case 'B': return LetterFactory.create_B();
-            case 'a': return LetterFactory.create_a();
-            case 'i': return LetterFactory.create_i();
-            case 'n': return LetterFactory.create_n();
-            case 'A': return LetterFactory.create_A();
-            case 'l': return LetterFactory.create_l();
-            case 'r': return LetterFactory.create_r();
-            default: throw new Exception("Cette lettre n'est pas valide: " + String.valueOf(letter));
+            case 'C':
+                return LetterFactory.create_C();
+            case 'e':
+                return LetterFactory.create_e();
+            case 'V':
+                return LetterFactory.create_V();
+            case 'B':
+                return LetterFactory.create_B();
+            case 'a':
+                return LetterFactory.create_a();
+            case 'i':
+                return LetterFactory.create_i();
+            case 'n':
+                return LetterFactory.create_n();
+            case 'A':
+                return LetterFactory.create_A();
+            case 'l':
+                return LetterFactory.create_l();
+            case 'r':
+                return LetterFactory.create_r();
+            default:
+                throw new Exception("Cette lettre n'est pas valide: " + letter);
         }
     }
 
     private static int getRandomRGB() {
         Random rand = new Random();
-        return  rand.nextInt(maxColor) * 0x010000 +
+        return rand.nextInt(maxColor) * 0x010000 +
                 rand.nextInt(maxColor) * 0x000100 +
                 rand.nextInt(maxColor) * 0x000001;
     }
 
     private static int getWhite() {
-        return  255 * 0x010000 +
+        return 255 * 0x010000 +
                 255 * 0x000100 +
                 255 * 0x000001;
     }
 
     private BaseShape insertShape(BaseShape nextLetter, Point2d nextPosition) {
-        Point2d center = new Point2d(-(nextLetter.getMaxX() + nextLetter.getMinX())/2,
-                -(nextLetter.getMaxY() + nextLetter.getMinY())/2);
+        Point2d center = new Point2d(-(nextLetter.getMaxX() + nextLetter.getMinX()) / 2,
+                -(nextLetter.getMaxY() + nextLetter.getMinY()) / 2);
         nextLetter = nextLetter.translate(center);
         nextLetter = nextLetter.translate(nextLetter.getMaxCoord())
                 .translate(nextPosition);
@@ -78,11 +89,11 @@ public class LetterPlacer {
         Point2d max = new BaseShape(coordsList.stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList())).getMaxCoord();
-        int[][] pixels = new int[(int)(max.Y() + padding)][(int)(max.X() + padding)];
+        int[][] pixels = new int[(int) (max.Y() + padding)][(int) (max.X() + padding)];
         for (Collection<Point2d> coords : coordsList) {
             int color = saveInWhite ? getWhite() : getRandomRGB();
             for (Point2d point : coords) {
-                enlarge(pixels, (int)Math.round(point.Y()), (int)Math.round(point.X()), color);
+                enlarge(pixels, (int) Math.round(point.Y()), (int) Math.round(point.X()), color);
             }
         }
 
@@ -103,7 +114,8 @@ public class LetterPlacer {
             for (int j = -enlargeFactor; j <= enlargeFactor; ++j) {
                 try {
                     pixels[j + y][i + x] = color;
-                } catch (ArrayIndexOutOfBoundsException e) {}
+                } catch (ArrayIndexOutOfBoundsException e) {
+                }
             }
         }
     }

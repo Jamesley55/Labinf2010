@@ -1,5 +1,7 @@
 package tp1;
 
+import org.w3c.dom.css.Rect;
+
 public final class LetterFactory {
     final static Double maxHeight = 200.0;
     final static Double maxWidth = maxHeight / 2.5;
@@ -10,57 +12,76 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_e() {
-        return null;
+        Double spacing = stripeThickness * 2;
+        Ellipse ellipse = new Ellipse(maxHeight, maxWidth);
+        Rectangle rect = new Rectangle(maxWidth, stripeThickness);
+        ellipse.add(rect);
+        Rectangle smallSpace = new Rectangle(halfStripeThickness, halfStripeThickness);
+        ellipse.remove(smallSpace);
+        return ellipse;
     }
 
     // TODO
     public static BaseShape create_a() {
-        return null;
+        Rectangle rect = new Rectangle(stripeThickness, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, stripeThickness);
+
+        return rect.remove(rect2);
     }
 
     public static BaseShape create_C() {
-        Ellipse mainBody = new Ellipse(maxWidth, maxHeight);
-        Ellipse middleToRemove = new Ellipse(maxWidth - stripeThickness,
-                maxHeight - stripeThickness);
-        BaseShape rightToRremove = new Rectangle(halfMaxWidth, maxHeight/1.5).translate(new Point2d(halfMaxWidth/2, 0.0));
+        Rectangle rect = new Rectangle(stripeThickness, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, stripeThickness);
 
-        mainBody.remove(middleToRemove);
-        mainBody.remove(rightToRremove);
-        return mainBody;
+        return rect.remove(rect2);
     }
 
     // TODO
     public static BaseShape create_l() {
-        return null;
+        return new Rectangle(stripeThickness, maxHeight);
     }
 
     // TODO
     public static BaseShape create_i() {
-        return null;
+        Rectangle rect = new Rectangle(stripeThickness, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, stripeThickness);
+
+        return rect.remove(rect2);
     }
 
     // TODO
     public static BaseShape create_A() {
-        return null;
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, maxHeight);
+        return ellipse.add(rect2);
+
     }
 
     // TODO
     public static BaseShape create_V() {
-        return null;
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, maxHeight);
+        return ellipse.add(rect2);
     }
 
     // TODO
     public static BaseShape create_n() {
-        return null;
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, maxHeight);
+        return ellipse.add(rect2);
     }
 
     // TODO
     public static BaseShape create_r() {
-        return null;
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, maxHeight);
+        return ellipse.add(rect2);
     }
 
     // TODO
     public static BaseShape create_B() {
-        return null;
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        Rectangle rect2 = new Rectangle(stripeThickness, maxHeight);
+        return ellipse.add(rect2);
     }
 }

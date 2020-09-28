@@ -14,8 +14,13 @@ public class Point2d extends AbstractPoint {
         super(vector.clone());
     }
 
-    public Double X() { return vector[X];}
-    public Double Y() { return vector[Y];}
+    public Double X() {
+        return vector[X];
+    }
+
+    public Double Y() {
+        return vector[Y];
+    }
 
     // TODO appliquer la transalation sur la classe courrante et retourner la reference
     @Override

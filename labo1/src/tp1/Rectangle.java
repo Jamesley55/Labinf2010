@@ -7,9 +7,9 @@ public class Rectangle extends BaseShape {
     // TODO creer un rectangle avec une largeur et une longueur.
     public Rectangle(Double width, Double height) {
         //ArrayList<Point2d> newRect = new ArrayList<Point2d>();
-        for(int i = 0; i < width.intValue(); i++){
-            for(int j = 0; j < height.intValue(); j++) {
-                add(new Point2d((double)i,(double)j));
+        for (int i = 0; i < width.intValue(); i++) {
+            for (int j = 0; j < height.intValue(); j++) {
+                add(new Point2d((double) i, (double) j));
             }
         }
     }
@@ -27,17 +27,20 @@ public class Rectangle extends BaseShape {
     // TODO appliquer la translation sur la forme.
     @Override
     public Rectangle translate(Point2d point) {
-        return translate(point);
+         super.translate(point);
+         return this;
     }
 
     // TODO appliquer la rotation sur la forme.
     @Override
     public Rectangle rotate(Double angle) {
-        return rotate(angle);
+        super.rotate(angle);
+        return this;
     }
 
     // TODO retourner une nouvelle forme.
     @Override
     public Rectangle clone() {
-        return new Rectangle(getCoordsDeepCopy()); }
+        return new Rectangle(getCoordsDeepCopy());
+    }
 }

@@ -4,7 +4,9 @@ import org.ejml.simple.SimpleMatrix;
 
 import java.util.Collections;
 import java.util.function.Function;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;

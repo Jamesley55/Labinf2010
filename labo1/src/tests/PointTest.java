@@ -8,14 +8,15 @@ import tp1.PointOperator;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PointTest {
 
     @Test
     void translate() {
-        Double[][] rawVector = { {0.0, 0.0, 0.0} };
-        Double[][] rawTranslate = { {1.0, 2.0, 3.0} };
+        Double[][] rawVector = {{0.0, 0.0, 0.0}};
+        Double[][] rawTranslate = {{1.0, 2.0, 3.0}};
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix translate = new SimpleMatrix(Tester.toPrimitive(rawTranslate));
         SimpleMatrix correctOutput = vector.plus(translate);
@@ -25,7 +26,7 @@ public class PointTest {
 
     @Test
     void rotate() {
-        Double[][] rawVector = { {1.0, 2.0, 3.0} };
+        Double[][] rawVector = {{1.0, 2.0, 3.0}};
         Double[][] rawRotate = {
                 {1.0, 2.0, 0.0},
                 {3.0, 4.0, 0.0},
@@ -40,7 +41,7 @@ public class PointTest {
 
     @Test
     void divide() {
-        Double[][] rawVector = { {1.0, 2.0, 3.0} };
+        Double[][] rawVector = {{1.0, 2.0, 3.0}};
         Double scale = 5.0;
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix correctOutput = vector.divide(scale);
@@ -50,7 +51,7 @@ public class PointTest {
 
     @Test
     void multiply() {
-        Double[][] rawVector = { {1.0, 2.0, 3.0} };
+        Double[][] rawVector = {{1.0, 2.0, 3.0}};
         Double scale = 5.0;
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix correctOutput = vector.scale(scale);
@@ -60,7 +61,7 @@ public class PointTest {
 
     @Test
     void add() {
-        Double[][] rawVector = { {1.0, 2.0, 3.0} };
+        Double[][] rawVector = {{1.0, 2.0, 3.0}};
         Double scale = 5.0;
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix correctOutput = vector.plus(scale);
@@ -90,7 +91,7 @@ public class PointTest {
 
     @Test
     void pointConstructor() {
-        Double[] data = { 1.0, 2.0 };
+        Double[] data = {1.0, 2.0};
         Point2d test = new Point2d(data);
         data[0] = 0.0;
         assertEquals(test.X(), 1.0);
@@ -98,16 +99,16 @@ public class PointTest {
 
     @Test
     void methodsChangeInternal() {
-        Double[] data = { 1.0, 2.0 };
+        Double[] data = {1.0, 2.0};
         Point2d point = new Point2d(data);
-        Point2d test1 = new Point2d(data).rotate(1.0).translate(new Double[] { 1.0, 1.0}).divide(5.0).multiply(3.5).add(22.0);
-        Point2d test2 = new Point2d(data).rotate(1.0).translate(new Double[] { 1.0, 1.0}).divide(5.0).multiply(3.5).add(22.0);
+        Point2d test1 = new Point2d(data).rotate(1.0).translate(new Double[]{1.0, 1.0}).divide(5.0).multiply(3.5).add(22.0);
+        Point2d test2 = new Point2d(data).rotate(1.0).translate(new Double[]{1.0, 1.0}).divide(5.0).multiply(3.5).add(22.0);
         assertEquals(test1, test2);
     }
 
     @Test
     void rotatePoint() {
-        Double[][] rawVector = { {1.0, 5.0} };
+        Double[][] rawVector = {{1.0, 5.0}};
         Double[][] rawRotate = {
                 {0.0, -1.0},
                 {1.0, 0.0},
@@ -116,18 +117,18 @@ public class PointTest {
         SimpleMatrix rotate = new SimpleMatrix(Tester.toPrimitive(rawRotate));
         SimpleMatrix correctOutput = rotate.mult(vector.transpose()).transpose();
         Point2d output = new Point2d(rawVector[0]).rotate(Math.toRadians(90));
-        Tester.isEqual(correctOutput, new Double[] {output.X(), output.Y()});
+        Tester.isEqual(correctOutput, new Double[]{output.X(), output.Y()});
     }
 
     @Test
     void translatePoint() {
-        Double[][] rawVector = { {0.0, 0.0} };
-        Double[][] rawTranslate = { {1.0, 2.0} };
+        Double[][] rawVector = {{0.0, 0.0}};
+        Double[][] rawTranslate = {{1.0, 2.0}};
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix translate = new SimpleMatrix(Tester.toPrimitive(rawTranslate));
         SimpleMatrix correctOutput = vector.plus(translate);
         Point2d output = new Point2d(rawVector[0]).translate(new Point2d(rawTranslate[0]));
-        Tester.isEqual(correctOutput, new Double[] {output.X(), output.Y()});
+        Tester.isEqual(correctOutput, new Double[]{output.X(), output.Y()});
     }
 
     @Test

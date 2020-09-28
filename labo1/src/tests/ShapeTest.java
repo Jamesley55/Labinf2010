@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import tp1.*;
 
 import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ShapeTest {
@@ -27,8 +28,8 @@ public class ShapeTest {
 
     @Test
     void translate() {
-        Double[][] rawVector = { {0.0, 0.0} };
-        Double[][] rawTranslate = { {1.0, 2.0} };
+        Double[][] rawVector = {{0.0, 0.0}};
+        Double[][] rawTranslate = {{1.0, 2.0}};
         SimpleMatrix vector = new SimpleMatrix(Tester.toPrimitive(rawVector));
         SimpleMatrix translate = new SimpleMatrix(Tester.toPrimitive(rawTranslate));
         SimpleMatrix correctOutput = vector.plus(translate);
@@ -36,12 +37,12 @@ public class ShapeTest {
         list.add(new Point2d(rawVector[0][0], rawVector[0][1]));
         BaseShape output = new BaseShape(list).translate(new Point2d(rawTranslate[0][0], rawTranslate[0][1]));
         Point2d point = output.getCoords().iterator().next();
-        Tester.isEqual(correctOutput, new Double[] { point.X(), point.Y() });
+        Tester.isEqual(correctOutput, new Double[]{point.X(), point.Y()});
     }
 
     @Test
     void rotate() {
-        Double[][] rawVector = { {1.0, 5.0} };
+        Double[][] rawVector = {{1.0, 5.0}};
         Double[][] rawRotate = {
                 {0.0, -1.0},
                 {1.0, 0.0},
@@ -53,7 +54,7 @@ public class ShapeTest {
         list.add(new Point2d(rawVector[0][0], rawVector[0][1]));
         BaseShape output = new BaseShape(list).rotate(Math.toRadians(90));
         Point2d point = output.getCoords().iterator().next();
-        Tester.isEqual(correctOutput, new Double[] { point.X(), point.Y() });
+        Tester.isEqual(correctOutput, new Double[]{point.X(), point.Y()});
     }
 
     @Test
