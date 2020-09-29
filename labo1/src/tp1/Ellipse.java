@@ -6,40 +6,26 @@ public class Ellipse extends BaseShape {
     // TODO creer une ellipse avec une largeur et une longueur.
     public Ellipse(Double widthRadius, Double heightRadius) {
         Double a = widthRadius;
-        Double b = heightRadius;
-        for (int i = 0; i < widthRadius.intValue(); i++) {
-            for (int j = 0; j < heightRadius.intValue(); j++) {
-                add(new Point2d(Math.sqrt((1 - (Math.pow(i, 2)) / Math.pow(a, 2)) * Math.pow(b, 2)),
-                        Math.sqrt((1 - (Math.pow(j, 2)) / Math.pow(b, 2)) * Math.pow(a, 2))));
-            }
-            //a--;
-            //b--;
-
+         Double b = heightRadius;
+        for(int i = 0; i < a; i++ ) {
+            //
+            this.add(new Point2d((-(a/2)+i), -Math.sqrt(((1-(Math.pow((-a/2+i),2)/(Math.pow(a/2, 2))))*Math.pow(b/2, 2)))));
         }
-        //for(int i = 0; i < widthRadius.intValue(); i++){
-        //    for(int j = 0; j < heightRadius.intValue(); j++) {
-        //        double formula = (Math.pow(i,2)/Math.pow(a,2)) +(Math.pow(j,2)/Math.pow(b,2));
-        //        if(formula <= 1){
-        //            add(new Point2d((double)i,(double)j));
-        //        }
-        //    }
-        //}
+        for(int j = 0; j < a; j++ ) {
+            this.add(new Point2d((-(a/2)+j), Math.sqrt(((1-(Math.pow((-a/2+j),2)/(Math.pow(a/2, 2))))*Math.pow(b/2, 2)))));
+        }
+        for(int k = 0; k < b; k++) {
+            this.add(new Point2d((Math.sqrt(((1-(Math.pow((-b/2+k),2)/(Math.pow(b/2, 2))))*Math.pow(a/2, 2)))),-(b/2)+k));
+        }
+        for(int l = 0; l < b; l++) {
+            this.add(new Point2d((-Math.sqrt(((1-(Math.pow((-b/2+l),2)/(Math.pow(b/2, 2))))*Math.pow(a/2, 2)))),-(heightRadius/2)+l));
+        }
 
     }
 
     // TODO creer une ellipse avec les dimensions contenu dans un Point.
     public Ellipse(Point2d dimensions) {
         this(dimensions.X(), dimensions.Y());
-        //Double a  = dimensions.X();
-        //Double b = dimensions.Y();
-        //for(int i = 0; i < dimensions.X().intValue(); i++){
-        //    for(int j = 0; j < dimensions.Y().intValue(); j++) {
-        //        double formula = (Math.pow(i,2)/Math.pow(a,2)) +(Math.pow(j,2)/Math.pow(b,2));
-        //        if(formula <= 1){
-        //            add(new Point2d((double)i,(double)j));
-        //        }
-        //    }
-        //}
     }
 
     // TODO initialiser le parent.
@@ -64,8 +50,6 @@ public class Ellipse extends BaseShape {
     // TODO retourner une nouvelle forme.
     @Override
     public Ellipse clone() {
-        return (Ellipse) super.clone();
-        //return this;
-        //new Ellipse(getCoordsDeepCopy());
+        return new Ellipse(getCoordsDeepCopy());
     }
 }
