@@ -15,7 +15,6 @@ public final class LetterFactory {
         BaseShape Ellipse = new Ellipse(maxWidth, maxHeight);
         for (int i = 0; i < halfMaxWidth / 2 + 10; i++) {
             BaseShape littleCircle = new Rectangle(halfMaxWidth - i, maxHeight / 3 - i);
-
             Ellipse.remove(littleCircle);
 
         }
@@ -37,8 +36,8 @@ public final class LetterFactory {
 
     public static BaseShape create_C() {
         BaseShape Ellipse = new Ellipse(maxWidth, maxHeight);
-        for (int i = 0; i < halfMaxWidth / 2 + 10; i++) {
-            BaseShape littleCircle = new Rectangle(halfMaxWidth - i, maxHeight / 3 - i);
+        for (int i = 0; i < halfMaxWidth / 2 ; i++) {
+            BaseShape littleCircle = new Rectangle(halfMaxWidth - i, maxWidth  - i*2);
             Ellipse.remove(littleCircle);
 
         }
@@ -82,17 +81,35 @@ rect.add(rect3);
 
     // TODO
     public static BaseShape create_n() {
-        Rectangle Rect1 = new Rectangle(stripeThickness, maxHeight);
+        Rectangle Rect1 = new Rectangle(stripeThickness, maxHeight).translate( new Point2d(-maxWidth,-halfMaxHeight));
+        Ellipse ellipse = new Ellipse(maxWidth, maxHeight);
+        for (int i = 0; i < maxWidth/2 ; i++) {
+            BaseShape littleCircle = new Rectangle( maxWidth -i ,halfMaxWidth-i*2);
+            ellipse.remove(littleCircle);
+
+        }
+
+        Rect1.add(ellipse);
         return Rect1;
     }
 
     // TODO
     public static BaseShape create_r() {
 
-        Rectangle Rect1 = new Rectangle(halfStripeThickness, maxHeight/2).translate( new Point2d(-maxWidth, maxHeight/4));
-        BaseShape littleCircle = new Circle(halfMaxHeight);
-        littleCircle.remove( new Point2d(-halfMaxWidth*2, -halfMaxWidth/2));
-       Rect1.add(littleCircle);
+        Rectangle Rect1 = new Rectangle(halfStripeThickness, maxHeight/2).translate( new Point2d(-maxWidth/2, maxHeight/4));
+        BaseShape Circle = new Ellipse(halfMaxWidth, halfMaxHeight);
+        for (int i = 0; i < maxWidth ; i++) {
+            BaseShape littleCircle = new Rectangle(maxWidth - i, maxHeight  - i);
+            Circle.remove(littleCircle);
+
+        }
+        for (int i = 0; i < maxWidth ; i++) {
+            BaseShape littleCircle = new Rectangle(maxWidth + i, maxHeight  + i);
+            Circle.remove(littleCircle);
+
+        }
+        Circle.translate( new Point2d(-maxWidth/4, halfMaxHeight/4));
+       Rect1.add(Circle);
         return Rect1;
     }
 
