@@ -73,8 +73,25 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * TODO Average Case : O(1)
      * Find the next prime after increasing the capacity by CAPACITY_INCREASE_FACTOR (multiplication)
      */
+    public int nextPrime(int input){
+        int counter;
+        while(true){
+            counter = 0;
+            for(int i = 1; i <= input; i ++){
+                if(input % i == 0)  counter++;
+            }
+            if(counter == 2)
+                return input;
+            else{
+                input++;
+                continue;
+            }
+        }
+    }
+
     private void increaseCapacity() {
-        capacity = capacity * CAPACITY_INCREASE_FACTOR;
+        this.capacity = nextPrime(capacity * CAPACITY_INCREASE_FACTOR);
+
     }
 
     /**
