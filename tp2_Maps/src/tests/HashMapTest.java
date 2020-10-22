@@ -202,7 +202,6 @@ class HashMapTest {
 
         // Clear should not put capacity back to its initial value
         map.clear();
-
         assertEquals(map.capacity(), 23);
     }
 

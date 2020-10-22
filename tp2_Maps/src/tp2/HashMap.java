@@ -1,5 +1,6 @@
 package tp2;
 
+import javax.xml.crypto.Data;
 import java.util.Iterator;
 
 public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
@@ -88,12 +89,17 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
         for (int i = 0; i < map.length; i++) {
             Node<KeyType, DataType> currentNode = map[i];
             while (currentNode != null) {
-                newMap[i] = currentNode;
-                newMap[i] = newMap[i].next;
-                currentNode = map[i].next;
+                if(newMap[hash(currentNode.key)] == null){
+                    newMap[hash(currentNode.key)] = new Node<KeyType,DataType>(currentNode.key,currentNode.data);
+                }else{
+                    newMap[hash(currentNode.key)].next = new Node<KeyType,DataType>(currentNode.key,currentNode.data);
+                }
+                currentNode = currentNode.next;
             }
         }
-
+        for (int i = 0; i < newMap.length; i++){
+            map[i] = newMap[i];
+        }
 
     }
 
@@ -105,10 +111,11 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * @return if key is already used in map
      */
     public boolean containsKey(KeyType key) {
+
         int index = hash(key);
         if (map[index] != null) {
             do {
-                if (map[index].key == key) {
+                if (map[index].key.equals(key)) {
                     return true;
                 }
             } while (map[index].next != null);
@@ -129,11 +136,13 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
         int index = hash(key);
         if (containsKey(key)) {
             do {
-                if(map[index].key == key){
+                if(map[index].key.equals(key)){
                 data = map[index].data;
 
                 }
             } while (map[index].next != null);
+        }else{
+            return null;
         }
         return data;
     }
@@ -146,22 +155,20 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType put(KeyType key, DataType value) {
-        DataType data = null;
         int index = hash(key);
-        if (containsKey(key)) {
-            do {
-                if (map[index].key == key) {
-                    data = map[index].data;
-                    map[index].data = value;
-                }
-            }
-            while (map[index].next != null);
+        if(containsKey(key)){
+            DataType old = get(key);
+            map[index].data = value;
+            return old;
         } else {
             map[index] = new Node<KeyType, DataType>(key, value);
             size++;
-        }
-        return data;
+            if(needRehash()){
+                rehash();
+            }
+            return null;
 
+        }
     }
 
     /**
@@ -172,23 +179,18 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType remove(KeyType key) {
-        DataType data = null;
-        int index = hash(key);
+
         if (containsKey(key)) {
-            Node<KeyType, DataType> previous = null;
-            Node<KeyType, DataType> next = map[index].next;
-            do {
-                if (map[index].key == key) {
-                    data = map[index].data;
-                    map[index].data = null;
-                    previous.next = map[index].next;
-                    map[index] = previous;
-                }
-                previous.next = map[index];
-            }
-            while (map[index].next != null);
+            Node<KeyType, DataType> node = map[hash(key)];
+           while(!node.key.equals(key)){
+               node = node.next;
+           }
+            DataType old = node.data;
+            size--;
+            node = node.next;
+            return  old;
         }
-        return data;
+        return null;
     }
 
     /**
@@ -198,8 +200,9 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     public void clear() {
         for (int i = 0; i < size; i++) {
             map[i] = null;
+            size--;
         }
-        size = 0;
+
     }
 
     static class Node<KeyType, DataType> {
@@ -223,13 +226,14 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     // for (Key key : map) { doSomethingWith(key); }
     private class HashMapIterator implements Iterator<KeyType> {
         // TODO: Add any relevant data structures to remember where we are in the list.
-
+        private int current = 0;
+        private int nbReturned = 0;
+        private boolean okToRemove = false;
         /**
          * TODO Worst Case : O(n)
          * Determine if there is a new element remaining in the hashmap.
          */
-        public boolean hasNext() {
-            return false;
+        public boolean hasNext() { return nbReturned < size();
         }
 
         /**
