@@ -1,6 +1,7 @@
 package tp2;
 
 import javax.xml.crypto.Data;
+import java.security.Key;
 import java.util.Iterator;
 
 public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
@@ -9,7 +10,7 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     private static final float DEFAULT_LOAD_FACTOR = 0.5f;
     private static final int CAPACITY_INCREASE_FACTOR = 2;
 
-    private final Node<KeyType, DataType>[] map;
+    private Node<KeyType, DataType>[] map;
     private int size = 0;
     private int capacity;
     private final float loadFactor; // Compression factor
@@ -74,28 +75,29 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * Find the next prime after increasing the capacity by CAPACITY_INCREASE_FACTOR (multiplication)
      */
 
-    // Revenir sur cette fonction
-    public int nextPrime(int input){
-        int counter;
-        while(true){
-            counter = 0;
-            // cherche si c'est prime
-            for(int i = 1; i <= input; i ++){
-                if(input != i && input % i == 0)  counter++;
-            }
-            if(counter == 2)
-                return input;
-            else{
-                // si c'est pas prime on fait +1
-                input++;
-                continue;
-            }
-            // et on recommence
-        }
-    }
-
     private void increaseCapacity() {
-        this.capacity = nextPrime(capacity * CAPACITY_INCREASE_FACTOR);
+        capacity = capacity * CAPACITY_INCREASE_FACTOR;
+        if(capacity > 2 ) {
+            boolean isPrime = false;
+            capacity++;
+            while(capacity >5 && !isPrime){
+                if(capacity % 2 ==0){
+                    isPrime = false;
+                    capacity ++;
+                }
+                else {
+                    isPrime = true;
+
+                    for(int i =3; i*i <= capacity; i +=2){
+                        if(capacity % i ==0){
+                            isPrime = false;
+                            capacity++;
+                        }
+                     }
+
+                }
+            }
+        }
 
     }
 
@@ -119,9 +121,15 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
                 currentNode = currentNode.next;
             }
         }
-        for (int i = 0; i < newMap.length; i++){
+
+        /* this function does not work
+        for (int i = 0; i < map.length; i++){
             map[i] = newMap[i];
         }
+         */
+
+        // change map  to Not Final variable in order to clone newMap inside of map
+        this.map = newMap.clone();
 
     }
 
@@ -135,14 +143,23 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     public boolean containsKey(KeyType key) {
 
         int index = hash(key);
-        if (map[index] != null) {
-            do {
-                if (map[index].key.equals(key)) {
-                    return true;
-                }
-            } while (map[index].next != null);
+        Node<KeyType,DataType> node = map[index];
+        while (node !=null){
+            if(node.key.equals(key)){
+                return true;
+            }
+            node = node.next;
         }
-        return false;
+        //if (map[index] != null) {
+        //    do {
+        //        if (map[index].key.equals(key)) {
+         //           return true;
+        //        }
+        //        map[index] = map[index].next;
+        //    } while (map[index].next != null);
+        // }
+
+         return false;
 
     }
 
@@ -220,11 +237,10 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * Removes all nodes contained within the map
      */
     public void clear() {
-        for (int i = 0; i < size; i++) {
-            map[i] = null;
-            size--;
+        for (int i =0; i< map.length; i++){
+            map[i]= null;
         }
-
+        size =0;
     }
 
     static class Node<KeyType, DataType> {
@@ -250,12 +266,11 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
         // TODO: Add any relevant data structures to remember where we are in the list.
         private int current = 0;
         private int nbReturned = 0;
-        private boolean okToRemove = false;
         /**
          * TODO Worst Case : O(n)
          * Determine if there is a new element remaining in the hashmap.
          */
-        public boolean hasNext() { return nbReturned < size() -1 ;
+        public boolean hasNext() { return nbReturned < size();
         }
 
         /**
@@ -263,8 +278,15 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
          * Return the next new key in the hashmap.
          */
         public KeyType next() {
-             nbReturned++;
-             return ;
+            if( !hasNext( ) )
+                throw new java.util.NoSuchElementException();
+
+            while( nbReturned < map.length ) {
+                nbReturned++;
+                return map[current - 1].key;
+            }
+
+            return null;
         }
     }
 }
