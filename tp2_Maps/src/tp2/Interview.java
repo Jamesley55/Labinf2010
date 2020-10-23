@@ -10,6 +10,7 @@ public final class Interview {
      * TODO Worst Case : O(n)
      * Is valid if you flip the number upside down.
      */
+    //  Character.getNumericValue()
     public static boolean isValidFlipped(String listOfNumbers) {
         return false;
     }

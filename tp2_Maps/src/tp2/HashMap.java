@@ -73,19 +73,24 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * TODO Average Case : O(1)
      * Find the next prime after increasing the capacity by CAPACITY_INCREASE_FACTOR (multiplication)
      */
+
+    // Revenir sur cette fonction
     public int nextPrime(int input){
         int counter;
         while(true){
             counter = 0;
+            // cherche si c'est prime
             for(int i = 1; i <= input; i ++){
-                if(input % i == 0)  counter++;
+                if(input != i && input % i == 0)  counter++;
             }
             if(counter == 2)
                 return input;
             else{
+                // si c'est pas prime on fait +1
                 input++;
                 continue;
             }
+            // et on recommence
         }
     }
 
@@ -250,7 +255,7 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
          * TODO Worst Case : O(n)
          * Determine if there is a new element remaining in the hashmap.
          */
-        public boolean hasNext() { return nbReturned < size();
+        public boolean hasNext() { return nbReturned < size() -1 ;
         }
 
         /**
@@ -258,7 +263,8 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
          * Return the next new key in the hashmap.
          */
         public KeyType next() {
-            return null;
+             nbReturned++;
+             return ;
         }
     }
 }
