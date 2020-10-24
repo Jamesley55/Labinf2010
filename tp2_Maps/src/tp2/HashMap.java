@@ -74,31 +74,18 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * TODO Average Case : O(1)
      * Find the next prime after increasing the capacity by CAPACITY_INCREASE_FACTOR (multiplication)
      */
+    int nextPrime(int capacity) {
+        if(!isPrime(capacity)) capacity = nextPrime(++capacity);
+        return capacity;
+    }
+    boolean isPrime(int value) {
+        for(int i = 2; i <= Math.sqrt(value); i++)
+            if(value % i == 0) return false;
+        return true;
+    }
 
     private void increaseCapacity() {
-        capacity = capacity * CAPACITY_INCREASE_FACTOR;
-        if(capacity > 2 ) {
-            boolean isPrime = false;
-            capacity++;
-            while(capacity >5 && !isPrime){
-                if(capacity % 2 ==0){
-                    isPrime = false;
-                    capacity ++;
-                }
-                else {
-                    isPrime = true;
-
-                    for(int i =3; i*i <= capacity; i +=2){
-                        if(capacity % i ==0){
-                            isPrime = false;
-                            capacity++;
-                        }
-                     }
-
-                }
-            }
-        }
-
+        capacity = nextPrime(capacity * CAPACITY_INCREASE_FACTOR);
     }
 
     /**
@@ -150,14 +137,6 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
             }
             node = node.next;
         }
-        //if (map[index] != null) {
-        //    do {
-        //        if (map[index].key.equals(key)) {
-         //           return true;
-        //        }
-        //        map[index] = map[index].next;
-        //    } while (map[index].next != null);
-        // }
 
          return false;
 
@@ -171,19 +150,15 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * @return DataType instance attached to key (null if not found)
      */
     public DataType get(KeyType key) {
-        DataType data = null;
         int index = hash(key);
-        if (containsKey(key)) {
-            do {
-                if(map[index].key.equals(key)){
-                data = map[index].data;
-
-                }
-            } while (map[index].next != null);
-        }else{
-            return null;
+        Node<KeyType, DataType> node = map[index];
+        while (node != null ) {
+            if (node.key.equals(key)) {
+                return node.data;
+            }
+            node = node.next;
         }
-        return data;
+        return null;
     }
 
     /**
@@ -196,18 +171,26 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     public DataType put(KeyType key, DataType value) {
         int index = hash(key);
         if(containsKey(key)){
-            DataType old = get(key);
+            DataType oldData = get(key);
             map[index].data = value;
-            return old;
-        } else {
-            map[index] = new Node<KeyType, DataType>(key, value);
-            size++;
-            if(needRehash()){
-                rehash();
+            return oldData;
+        } else{
+            if(map[index]!= null){
+                Node<KeyType,DataType> node=map[index];
+                while(node.next!=null) {
+                    node=node.next;
+                }
+                node.next = new Node<KeyType, DataType>(key, value);
             }
-            return null;
-
+            else {
+                map[index] = new Node<KeyType, DataType>(key, value);
+                size++;
+            }
         }
+        if(needRehash()){
+            rehash();
+        }
+        return null;
     }
 
     /**
@@ -224,10 +207,10 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
            while(!node.key.equals(key)){
                node = node.next;
            }
-            DataType old = node.data;
+            DataType oldData = node.data;
             size--;
             node = node.next;
-            return  old;
+            return  oldData;
         }
         return null;
     }
@@ -240,7 +223,7 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
         for (int i =0; i< map.length; i++){
             map[i]= null;
         }
-        size =0;
+        size = 0;
     }
 
     static class Node<KeyType, DataType> {
