@@ -74,18 +74,33 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * TODO Average Case : O(1)
      * Find the next prime after increasing the capacity by CAPACITY_INCREASE_FACTOR (multiplication)
      */
+
+    // O(n)
     int nextPrime(int capacity) {
-        if(!isPrime(capacity)) capacity = nextPrime(++capacity);
+        if(capacity%2 ==0){
+            capacity++;
+        }
+        for( ; !isPrime(capacity); capacity+=2)
+            ;
         return capacity;
     }
-    boolean isPrime(int value) {
-        for(int i = 2; i <= Math.sqrt(value); i++)
-            if(value % i == 0) return false;
+    boolean isPrime(int n) {
+        if(n ==2 || n ==3){
+            return true;
+        }
+        if( n ==1 || n%2 ==0){
+            return false;
+        }
+        for(int i =3; i*i <=n; i+=2)
+            if(n%i ==0)
+                return false;
+
         return true;
     }
 
     private void increaseCapacity() {
-        capacity = nextPrime(capacity * CAPACITY_INCREASE_FACTOR);
+
+        capacity= nextPrime(capacity*CAPACITY_INCREASE_FACTOR);
     }
 
     /**
@@ -94,9 +109,11 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * reassigns all contained values within the new map
      */
     private void rehash() {
+        // O(N)
         increaseCapacity();
         Node<KeyType, DataType>[] newMap = new Node[capacity];
 
+        // O(N)
         for (int i = 0; i < map.length; i++) {
             Node<KeyType, DataType> currentNode = map[i];
             while (currentNode != null) {
@@ -114,7 +131,6 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
             map[i] = newMap[i];
         }
          */
-
         // change map  to Not Final variable in order to clone newMap inside of map
         this.map = newMap.clone();
 
@@ -139,7 +155,6 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
         }
 
          return false;
-
     }
 
     /**
@@ -152,7 +167,7 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
     public DataType get(KeyType key) {
         int index = hash(key);
         Node<KeyType, DataType> node = map[index];
-        while (node != null ) {
+        while (node != null) {
             if (node.key.equals(key)) {
                 return node.data;
             }
@@ -170,26 +185,29 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      */
     public DataType put(KeyType key, DataType value) {
         int index = hash(key);
-        if(containsKey(key)){
+        boolean KeyExist = containsKey(key);
+        if(KeyExist){
             DataType oldData = get(key);
             map[index].data = value;
             return oldData;
         } else{
-            if(map[index]!= null){
+            if(map[index]== null){
+                map[index] = new Node<KeyType, DataType>(key, value);
+                size++;
+                if(needRehash()){
+                    rehash();
+                }
+            }
+            else {
                 Node<KeyType,DataType> node=map[index];
                 while(node.next!=null) {
-                    node=node.next;
+                    node = node.next;
                 }
                 node.next = new Node<KeyType, DataType>(key, value);
             }
-            else {
-                map[index] = new Node<KeyType, DataType>(key, value);
-                size++;
-            }
         }
-        if(needRehash()){
-            rehash();
-        }
+
+
         return null;
     }
 
@@ -220,10 +238,8 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
      * Removes all nodes contained within the map
      */
     public void clear() {
-        for (int i =0; i< map.length; i++){
-            map[i]= null;
-        }
-        size = 0;
+        map =  new Node[capacity];
+        size =0;
     }
 
     static class Node<KeyType, DataType> {
@@ -264,7 +280,7 @@ public class HashMap<KeyType, DataType> implements Iterable<KeyType> {
             if( !hasNext( ) )
                 throw new java.util.NoSuchElementException();
 
-            while( nbReturned < map.length ) {
+            if( nbReturned < map.length ) {
                 nbReturned++;
                 return map[current - 1].key;
             }
