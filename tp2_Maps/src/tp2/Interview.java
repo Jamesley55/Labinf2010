@@ -20,22 +20,23 @@ public final class Interview {
         }
 
         for(int i = 0; i < listOfNumbers.length(); i++){
+            int flippedPos = listOfNumbers.length() - i - 1;
             if(array[i] == '3' || array[i] == '4' || array[i] == '7')
                 return false;
             else if(array[i] == '0')
-                flippedArray[listOfNumbers.length() - i] = '0';
+                flippedArray[flippedPos] = '0';
             else if(array[i] == '1')
-                flippedArray[listOfNumbers.length() - i] = '1';
+                flippedArray[flippedPos] = '1';
             else if(array[i] == '2')
-                flippedArray[listOfNumbers.length() - i] = '2';
+                flippedArray[flippedPos] = '2';
             else if(array[i] == '5')
-                flippedArray[listOfNumbers.length() - i] = '5';
+                flippedArray[flippedPos] = '5';
             else if(array[i] == '6')
-                flippedArray[listOfNumbers.length() - i] = '9';
+                flippedArray[flippedPos] = '9';
             else if(array[i] == '8')
-                flippedArray[listOfNumbers.length() - i] = '8';
+                flippedArray[flippedPos] = '8';
             else if(array[i] == '9')
-                flippedArray[listOfNumbers.length() - i] = '6';
+                flippedArray[flippedPos] = '6';
         }
 
         if(java.util.Arrays.equals(array, flippedArray) == true)
@@ -48,6 +49,11 @@ public final class Interview {
      * Could be valid if you try to flip the number upside down with one of the combinations.
      */
     public static boolean isValidFlippedWithPermutation(String listOfNumbers) {
+        if(isValidFlipped(listOfNumbers) == true)
+            return true;
+        else{
+
+        }
         return false;
     }
 }
