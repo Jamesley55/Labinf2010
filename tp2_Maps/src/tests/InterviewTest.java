@@ -1,6 +1,5 @@
 package tests;
 
-import edu.princeton.cs.algs4.LinearRegression;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import tp2.Interview;
@@ -89,5 +88,6 @@ class InterviewTest {
             // The trend should be linear between input size and time => R2 ~= 1 => O(n).
             assertEquals(regression.R2(), 1.0, 0.05);
         }, "Votre algorithme n'est probablement pas en O(n)");
+
     }
 }

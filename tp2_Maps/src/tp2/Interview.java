@@ -49,11 +49,7 @@ public final class Interview {
      * Could be valid if you try to flip the number upside down with one of the combinations.
      */
     public static boolean isValidFlippedWithPermutation(String listOfNumbers) {
-        if(isValidFlipped(listOfNumbers) == true)
-            return true;
-        else{
+            return isValidFlipped(listOfNumbers) == true;
 
-        }
-        return false;
     }
 }

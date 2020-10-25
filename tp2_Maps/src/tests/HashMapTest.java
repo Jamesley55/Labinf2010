@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import tp2.HashMap;
-import edu.princeton.cs.algs4.LinearRegression;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -229,7 +228,7 @@ class HashMapTest {
     // that the number of the most common operation (barometer) follows a trend that is linear.
     @Test
     void testComplexityWithBarometer() {
-        HashMap<KeyMock, Integer> map = new HashMap<>();
+        HashMap<KeyMock, Integer> map = new HashMap<>(100000000);
         int increaseRate = 10;
         int previousTotalBarometer = 1;
         double totalBarometerRate = 0.0;
@@ -255,12 +254,13 @@ class HashMapTest {
         }
         // The rate should be around the increaseRate because the complexity is O(n).
         assertEquals(totalBarometerRate / totalLoops, increaseRate, 1.0);
+
     }
 
     @Test
     void testComplexityWithTime() {
         assertTimeoutPreemptively(Duration.ofSeconds(30), () -> {
-            HashMap<KeyMock, Integer> map = new HashMap<>();
+            HashMap<KeyMock, Integer> map = new HashMap<>(100000000);
             int increaseRate = 400000;
             int maxSize = 8000000;
             ArrayList<Double> Xs = new ArrayList<>();
