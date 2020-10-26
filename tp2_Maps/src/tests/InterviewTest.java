@@ -48,7 +48,7 @@ class InterviewTest {
 
     @Test
     void isValidFlippedWithPermutationSimple() {
-        assertTrue(Interview.isValidFlippedWithPermutation(""));
+        assertTrue(Interview.isValidFlippedWithPermutation("111155888"));
         for (Integer i : List.of(0, 1, 2, 5, 8)) {
             assertTrue(Interview.isValidFlippedWithPermutation(i.toString()));
         }

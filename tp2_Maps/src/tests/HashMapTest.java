@@ -228,7 +228,7 @@ class HashMapTest {
     // that the number of the most common operation (barometer) follows a trend that is linear.
     @Test
     void testComplexityWithBarometer() {
-        HashMap<KeyMock, Integer> map = new HashMap<>(100000000);
+        HashMap<KeyMock, Integer> map = new HashMap<>(1000000);
         int increaseRate = 10;
         int previousTotalBarometer = 1;
         double totalBarometerRate = 0.0;
@@ -260,7 +260,7 @@ class HashMapTest {
     @Test
     void testComplexityWithTime() {
         assertTimeoutPreemptively(Duration.ofSeconds(30), () -> {
-            HashMap<KeyMock, Integer> map = new HashMap<>(100000000);
+            HashMap<KeyMock, Integer> map = new HashMap<>();
             int increaseRate = 400000;
             int maxSize = 8000000;
             ArrayList<Double> Xs = new ArrayList<>();
