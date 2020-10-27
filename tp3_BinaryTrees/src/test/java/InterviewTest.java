@@ -1,13 +1,15 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class InterviewTest {
     @Test
     void squareShape() {
-        Interview<Integer> interview = new Interview<>(new Integer[][] {
-                {1,2,5},
-                {29,67,98},
-                {100,245,900}
+        Interview<Integer> interview = new Interview<>(new Integer[][]{
+                {1, 2, 5},
+                {29, 67, 98},
+                {100, 245, 900}
         });
 
         assertTrue(interview.contains(1));
@@ -19,10 +21,10 @@ class InterviewTest {
 
     @Test
     void rectangleShape() {
-        Interview<Integer> interview = new Interview<>(new Integer[][] {
-                {1,2,5,18},
-                {29,67,98,99},
-                {100,245,900,950}
+        Interview<Integer> interview = new Interview<>(new Integer[][]{
+                {1, 2, 5, 18},
+                {29, 67, 98, 99},
+                {100, 245, 900, 950}
         });
 
         assertTrue(interview.contains(1));
@@ -34,7 +36,7 @@ class InterviewTest {
 
     @Test
     void anyShape() {
-        Interview<Integer> interview = new Interview<>(new Integer[][] {
+        Interview<Integer> interview = new Interview<>(new Integer[][]{
                 {1, 2, 5, 18, 20},
                 {29, 67, 98, 100, 245, 900, 949},
                 {950, 1000, 1020},
@@ -51,10 +53,10 @@ class InterviewTest {
 
     @Test
     void bounds() {
-        Interview<Integer> interview = new Interview<>(new Integer[][] {
-                {1,2,5},
-                {29,67,98},
-                {101,245,900}
+        Interview<Integer> interview = new Interview<>(new Integer[][]{
+                {1, 2, 5},
+                {29, 67, 98},
+                {101, 245, 900}
         });
 
         assertFalse(interview.contains(0));

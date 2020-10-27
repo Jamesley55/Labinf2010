@@ -1,31 +1,36 @@
 import edu.princeton.cs.algs4.LinearRegression;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.*;
-import java.util.stream.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class AvlTreeTest {
     static private AvlTree<Integer> tree;
     static private final int BALANCED_TREE_SIZE = 7;
 
     @BeforeEach
-    private void setUp(){
+    private void setUp() {
         tree = new AvlTree<>();
     }
 
     /**
-     *  Produces the following tree
-     *               3
-     *             /   \
-     *           1      5
-     *          / \    / \
-     *         0   2  4   6
+     * Produces the following tree
+     * 3
+     * /   \
+     * 1      5
+     * / \    / \
+     * 0   2  4   6
      */
-    private static void addBalancedTree(){
+    private static void addBalancedTree() {
         // Root
         tree.add(3);
 
@@ -41,18 +46,18 @@ class AvlTreeTest {
     }
 
     @Test
-    public void contains(){
+    public void contains() {
         assertFalse(tree.contains(0));
 
         addBalancedTree();
 
-        for (int value = 0; value < BALANCED_TREE_SIZE; ++value){
+        for (int value = 0; value < BALANCED_TREE_SIZE; ++value) {
             assertTrue(tree.contains(value));
         }
     }
 
     @Test
-    public void removePerfectCase(){
+    public void removePerfectCase() {
         addBalancedTree();
 
         // Second level
@@ -67,7 +72,7 @@ class AvlTreeTest {
 
         // First level
         tree.remove(1);
-        assertTrue( !tree.contains(1) && tree.contains(5));
+        assertTrue(!tree.contains(1) && tree.contains(5));
         tree.remove(5);
         assertTrue(!tree.contains(5) && tree.contains(3));
 
@@ -77,7 +82,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void cannotContainDuplicates(){
+    public void cannotContainDuplicates() {
         int duplicatedValue = 1;
 
         tree.add(duplicatedValue);
@@ -128,7 +133,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void infixOrder(){
+    public void infixOrder() {
         addBalancedTree();
         List<Integer> sortedList = IntStream.range(0, BALANCED_TREE_SIZE).boxed().collect(Collectors.toList());
         assertEquals(sortedList, tree.infixOrder());
@@ -142,7 +147,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void rotateRightPerfectCase(){
+    public void rotateRightPerfectCase() {
         tree.add(0);
         tree.add(1);
         tree.add(2);
@@ -154,7 +159,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void rotateLeftPerfectCase(){
+    public void rotateLeftPerfectCase() {
         tree.add(2);
         tree.add(1);
         tree.add(0);
@@ -166,7 +171,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void doubleRotateOnRightPerfectCase(){
+    public void doubleRotateOnRightPerfectCase() {
         tree.add(2);
 
         tree.add(1);
@@ -187,7 +192,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void doubleRotateOnLeftPerfectCase(){
+    public void doubleRotateOnLeftPerfectCase() {
         tree.add(4);
 
         tree.add(1);
@@ -208,7 +213,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void removeReassignsLeftAndRight(){
+    public void removeReassignsLeftAndRight() {
         Integer toRemove = 2;
 
         // Only root
@@ -237,7 +242,7 @@ class AvlTreeTest {
     }
 
     @Test
-    public void removeBalances(){
+    public void removeBalances() {
         tree.add(1);
 
         tree.add(0);
@@ -254,20 +259,24 @@ class AvlTreeTest {
     }
 
     @Test
-    public void completeBalancingTest(){
+    public void completeBalancingTest() {
         int n = 10;
-        int expectedHeight =  (int) Math.floor(Math.log(n) / Math.log(2)); // Numerically unstable calculation, won't work for all n values
+        int expectedHeight = (int) Math.floor(Math.log(n) / Math.log(2)); // Numerically unstable calculation, won't work for all n values
         List<Integer> sortedList = IntStream.range(0, n).boxed().collect(Collectors.toList());
 
         // Insertion to the left
-        for (int i = n - 1; i >= 0; --i){ tree.add(i); }
+        for (int i = n - 1; i >= 0; --i) {
+            tree.add(i);
+        }
 
         assertEquals(expectedHeight, tree.getHeight());
         assertEquals(sortedList, tree.infixOrder());
 
         // Insertion to the right
         setUp();
-        for (int i = 0; i < n; ++i) { tree.add(i); }
+        for (int i = 0; i < n; ++i) {
+            tree.add(i);
+        }
 
         assertEquals(expectedHeight, tree.getHeight());
         assertEquals(sortedList, tree.infixOrder());
@@ -292,7 +301,7 @@ class AvlTreeTest {
                 for (int i = 0; i < listSize; ++i) assertTrue(javaTree.contains(i));
                 for (int i = 0; i < listSize; ++i) javaTree.remove(i);
 
-                double timeSpent =  System.currentTimeMillis() - startTime;
+                double timeSpent = System.currentTimeMillis() - startTime;
                 Xs.add(timeSpent);
 
                 startTime = System.currentTimeMillis();
@@ -301,7 +310,7 @@ class AvlTreeTest {
                 for (int i = 0; i < listSize; ++i) tree.contains(i);
                 for (int i = 0; i < listSize; ++i) tree.remove(i);
 
-                timeSpent =  System.currentTimeMillis() - startTime;
+                timeSpent = System.currentTimeMillis() - startTime;
                 Ys.add(timeSpent);
             }
         }, "Votre algorithme n'est probablement pas en O(log n)");

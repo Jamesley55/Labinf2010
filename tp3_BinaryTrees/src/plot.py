@@ -1,5 +1,6 @@
-import os
 import argparse
+import os
+
 try:
     import matplotlib.pyplot as plt
     import numpy as np
@@ -8,8 +9,10 @@ except ImportError as e:
     print("Retry now")
     exit(1)
 
+
 def str_to_floats(comma_separated_list):
     return [float(x) for x in comma_separated_list.split(',')]
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Plot in X and Y')
@@ -34,7 +37,7 @@ if __name__ == "__main__":
     plt.plot(args.x, p(args.x), "r--", label=f"Trend: f(x) = {trend:.2f}x + {bias:.2f}")
 
     # Plot actual data
-    plt.plot(args.x, args.y, label="Experiment") 
+    plt.plot(args.x, args.y, label="Experiment")
     plt.xlabel('Java Implementation Time')
     plt.ylabel("Own Implementation Time")
     plt.title(f'[{args.caller}] Complexity Comparison, should be a straight line')
