@@ -25,21 +25,23 @@ public class AvlTree<ValueType extends Comparable<? super ValueType>> {
         } else {
             BinaryNode<ValueType> parentNode = root;
             while ( root!= null) {
-                if (value.compareTo(root.value) <= 0){
+                if(value.compareTo(root.value) == 0)
+                    break;
+                else if (value.compareTo(root.value) < 0){
                     parentNode = root;
                     root = root.left;}
                 else{
                     parentNode = root;
                     root = root.right;}
             }
-            if (value.compareTo(parentNode.value) <= 0){
+            if(value.compareTo(parentNode.value) == 0)
+                ;
+            else if (value.compareTo(parentNode.value) < 0){
                 root = new BinaryNode<ValueType>(value, parentNode);
                 parentNode.left = root;
                 root.parent = parentNode;
                 if(root.parent.right == null ) root.height++;
             }
-
-
             else{
                 root = new BinaryNode<ValueType>(value, parentNode);
                 parentNode.right = root;
@@ -62,22 +64,68 @@ public class AvlTree<ValueType extends Comparable<? super ValueType>> {
      */
     public void remove(ValueType value) {
         BinaryNode<ValueType> head = root;
+        while(value.compareTo(root.value) !=0){
+            if(value.compareTo(root.value) <= 0){
+                root = root.left;
+            }else{
+                root = root.right;
+            }
+        }
 
-            while (value.compareTo(root.value) != 0) {
-                if (value.compareTo(root.value) <= 0){
-                    root = root.left;}
-                else{
-                    root = root.right;}
+
+        // Case 1: node to be deleted has no children
+        if (root.left == null && root.right == null)
+        {
+
+            if (root != head) {
+                if (root == root.parent.left ) {
+                    root.parent.left = null;
+                } else {
+                    root.parent.right = null;
+                }
             }
-            if(root != null){
-                BinaryNode<ValueType> left = root.left;
-                BinaryNode<ValueType> right = root.right;
-                root.parent.left = left;
-                root.parent.right = right;
-                root = head;
-                balance(root);
-                root.height--;
+            else {
+                head = null;
             }
+        }
+
+
+        // Case 2: node to be deleted has  one child
+        else if (root.left != null || root.right != null)
+        {
+            BinaryNode<ValueType> child = (root.left != null)? root.left: root.right;
+            if (root != head)
+            {
+                if (root == root.parent.left) {
+                    root.parent.left = child;
+                } else {
+                    root.parent.right = child;
+                }
+            }
+
+            else {
+                root = child;
+            }
+        }
+
+        // Case 3: node to be deleted has two child
+        else if (root.left != null && root.right != null)
+        {
+            BinaryNode<ValueType> child = (root.left != null)? root.left: root.right;
+            if (root != head)
+            {
+                if (root == root.parent.left) {
+                    root.parent.left = child;
+                } else {
+                    root.parent.right = child;
+                }
+            }
+            else {
+                root = child;
+            }
+        }
+        root = head;
+        balance(root);
     }
 
     /**
@@ -125,18 +173,15 @@ public class AvlTree<ValueType extends Comparable<? super ValueType>> {
      */
     public ValueType findMin() {
         /* loop down to find the leftmost leaf */
-        BinaryNode<ValueType> head = root;
-
-        while (root != null) {
-            root = root.left;
-        }
-        if(root == null){
+        BinaryNode<ValueType> currentNode = root;
+        if(currentNode == null){
             return null;
-        }else{
-            BinaryNode<ValueType> value = root;
-            root = head;
-            return value.value;
         }
+        while (currentNode.left != null) {
+            currentNode = currentNode.left;
+        }
+        return currentNode.value;
+
 
     }
 
