@@ -125,7 +125,7 @@ class AvlTreeTest {
         tree.add(4);
         assertEquals(2, tree.getHeight());
         tree.add(6);
-        assertEquals(2, tree.getHeight());
+          assertEquals(2, tree.getHeight());
 
         // Third level
         tree.add(7);

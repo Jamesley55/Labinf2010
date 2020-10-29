@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AvlTreeTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-10-28T21:33:58" hostname="Jamesley-Macbook.local" time="4.355">
+<testsuite name="AvlTreeTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-10-29T23:50:34" hostname="Jamesley-Macbook.local" time="0.013">
   <properties/>
-  <testcase name="getHeight()" classname="AvlTreeTest" time="4.355">
-    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
-	at AvlTree.getHeight(AvlTree.java:164)
-	at AvlTreeTest.getHeight(AvlTreeTest.java:109)
+  <testcase name="doubleRotateOnLeftPerfectCase()" classname="AvlTreeTest" time="0.013">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;2&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;3&gt; but was: &lt;2&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:195)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:152)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:147)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
+	at AvlTreeTest.doubleRotateOnLeftPerfectCase(AvlTreeTest.java:209)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
