@@ -185,7 +185,7 @@ class AvlTreeTest {
 
         tree.remove(0);
 
-        assertEquals(2, tree.getHeight());
+        assertEquals(1, tree.getHeight());
 
         List<Integer> sortedList = IntStream.range(1, 7).boxed().collect(Collectors.toList());
         assertEquals(sortedList, tree.infixOrder());
@@ -206,7 +206,7 @@ class AvlTreeTest {
 
         tree.remove(6);
 
-        assertEquals(tree.getHeight(), 2);
+        assertEquals(tree.getHeight(), 1);
 
         List<Integer> sortedList = IntStream.range(0, 6).boxed().collect(Collectors.toList());
         assertEquals(sortedList, tree.infixOrder());

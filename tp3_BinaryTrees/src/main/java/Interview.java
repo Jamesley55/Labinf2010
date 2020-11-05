@@ -15,6 +15,26 @@ public class Interview<ValueType extends Comparable<? super ValueType>> {
      * @return if value is in matrix
      */
     public boolean contains(ValueType value) {
+        int height = matrix[0].length ;
+        int width = matrix.length ;
+        int n;
+        if (width > height) {
+            n = width;
+        } else {
+            n = height;
+        }
+        int i = 0, j = n - 1;
+
+        while (i < n && j >= 0) {
+            if (matrix[i][j].compareTo(value) == 0) {
+                return true;
+            }
+            if (matrix[i][j].compareTo(value) > 0)
+                j--;
+            else
+                i++;
+        }
+
         return false;
     }
 }
