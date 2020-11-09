@@ -36,14 +36,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/AvlTree$BinaryNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/AvlTree$BinaryNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/AvlTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/AvlTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Interview.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Interview.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/AvlTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/AvlTreeTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AvlTreeTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/AvlTreeTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AvlTreeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-AvlTreeTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AvlTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AvlTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Interview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Interview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AvlTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AvlTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,20 +91,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Gradle.AvlTreeTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.Tests in 'tp3_BinaryTrees.test'">
     <configuration name="AvlTreeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -242,19 +228,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'tp3_BinaryTrees.test'" />
         <item itemvalue="Gradle.AvlTreeTest" />
         <item itemvalue="Gradle.AvlTreeTest.doubleRotateOnLeftPerfectCase" />
-        <item itemvalue="Gradle.Tests in 'tp3_BinaryTrees.test'" />
         <item itemvalue="Gradle.AvlTreeTest.rotateRightPerfectCase" />
         <item itemvalue="Gradle.AvlTreeTest.infixOrder" />
       </list>
@@ -276,7 +254,8 @@
       <workItem from="1604185583338" duration="2167000" />
       <workItem from="1604286280407" duration="325000" />
       <workItem from="1604437699585" duration="9788000" />
-      <workItem from="1604604681816" duration="9369000" />
+      <workItem from="1604604681816" duration="10599000" />
+      <workItem from="1604872382130" duration="417000" />
     </task>
     <servers />
   </component>
@@ -300,26 +279,26 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="191" y="48" key="#Project_Structure/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1603743991285" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom" timestamp="1604616005902">
+    <state width="1398" height="202" key="GridCell.Tab.0.bottom" timestamp="1604898372201">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221949" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1604616005902" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center" timestamp="1604616005900">
+    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1604898372201" />
+    <state width="1398" height="202" key="GridCell.Tab.0.center" timestamp="1604898372200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221948" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1604616005900" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left" timestamp="1604616005899">
+    <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1604898372200" />
+    <state width="1398" height="202" key="GridCell.Tab.0.left" timestamp="1604898372199">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221947" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1604616005899" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right" timestamp="1604616005901">
+    <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1604898372199" />
+    <state width="1398" height="202" key="GridCell.Tab.0.right" timestamp="1604898372200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221948" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1604616005901" />
+    <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1604898372200" />
     <state x="191" y="48" key="SettingsEditor" timestamp="1603743816010">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
