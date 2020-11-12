@@ -97,8 +97,14 @@ public class Heap<ValueType extends Comparable<? super ValueType>> implements It
     // O(1): on retourne sans retirer le plus petit ou plus grand element.
     public ValueType peek() {
         // TODO
+<<<<<<< HEAD
         if(this.data.size() != 0)
             return this.data.get(1);
+=======
+        if(this.data.size() != 0) {
+            return this.data.get(1);
+        }
+>>>>>>> 7a7cb83 (lab 4)
         return null;
     }
 
