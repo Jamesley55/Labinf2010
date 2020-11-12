@@ -17,6 +17,7 @@ public class Heap<ValueType extends Comparable<? super ValueType>> implements It
     // O(1): construction sans donnees initiales
     public Heap(boolean isMin) {
         // TODO
+        this.isMin = isMin;
     }
 
     // O(n)
@@ -27,11 +28,16 @@ public class Heap<ValueType extends Comparable<? super ValueType>> implements It
     // O(n): construction avec donnees initiales, allez voir le lien dans la description pour vous aider
     public Heap(boolean isMin, Collection<ValueType> data) {
         // TODO
+        this.isMin = isMin;
+        data = new ArrayList<ValueType>();
+        for(int i = 0; i < data.size(); i++)
+            this.data.set(i+1, data[i]);
     }
 
     // O(1): on retourne le nombre d'elements dans la liste
     public int size() {
         // TODO
+        this.data.size();
         return 0;
     }
 
@@ -91,6 +97,8 @@ public class Heap<ValueType extends Comparable<? super ValueType>> implements It
     // O(1): on retourne sans retirer le plus petit ou plus grand element.
     public ValueType peek() {
         // TODO
+        if(this.data.size() != 0)
+            return this.data.get(1);
         return null;
     }
 
