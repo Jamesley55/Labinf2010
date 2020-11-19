@@ -36,6 +36,20 @@ public final class Interview {
      */
     public static List<Integer> getFriendsToRemove(Integer circleSize, List<Integer> centers, List<Point> points) {
         // TODO
+
+        int map[][] = new int [points.size()][points.size()];
+        for (int i = 0; i < points.size(); i++){
+            for (int j = 0; j < points.size(); j++){
+                //map[i][j] = ;
+            }
+        }
+        for(int center: centers){
+            Point point = points.get(center);
+            for(Point pointAComparer: points) {
+                point.compareTo(pointAComparer);
+            }
+        }
+
    return null;
     }
 }

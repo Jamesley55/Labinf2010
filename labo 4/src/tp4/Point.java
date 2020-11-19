@@ -35,6 +35,6 @@ public class Point implements Comparable<Point> {
     @Override
     public int compareTo(Point point) {
         // TODO ceci vous sera peut etre utile
-        return 0;
+        return Math.abs(point.x - this.x) + Math.abs(point.y - this.y);
     }
 }
