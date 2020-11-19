@@ -3,8 +3,8 @@ package tp4;
 public class Point implements Comparable<Point> {
     // TODO vous pouvez modifier ce que vous voulez, tant que vous ne modifiez pas les tests
 
-    private Integer x;
-    private Integer y;
+    private final Integer x;
+    private final Integer y;
 
     public Point(String xy) {
         String[] xAndY = xy.split(" +");
@@ -28,7 +28,7 @@ public class Point implements Comparable<Point> {
             return false;
         }
 
-        Point point = (Point)obj;
+        Point point = (Point) obj;
         return point.x.equals(x) && point.y.equals(y);
     }
 
