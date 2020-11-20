@@ -35,11 +35,6 @@ public final class Interview {
         // TODO
 
         int map[][] = new int [points.size()][points.size()];
-        for (int i = 0; i < points.size(); i++){
-            for (int j = 0; j < points.size(); j++){
-                //map[i][j] = ;
-            }
-        }
         for(int center: centers){
             Point point = points.get(center);
             for(Point pointAComparer: points) {
@@ -47,6 +42,19 @@ public final class Interview {
             }
         }
 
-   return null;
+        List<Integer> amiProblematique = new ArrayList<>();
+
+        for(int j = 0; j < map[0].length; j++ ){ //o(n²)
+            int sum = 0;
+            for(int i = 0; i < map.length; i++){
+                sum += map[i][j];
+            }
+            if(sum > 1){
+                amiProblematique.add(j);
+            }
+        }
+
+
+        return amiProblematique;
     }
 }
