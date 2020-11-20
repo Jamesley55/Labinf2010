@@ -1,7 +1,7 @@
 package tp4;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Collections;
 
@@ -36,18 +36,22 @@ public final class Interview {
         // TODO
 
         int map[][] = new int [points.size()][points.size()];
-        for(int center: centers){
+        for(Integer center: centers){
             Point point = points.get(center);
             List<Integer> distanceToCenter = new ArrayList<>();
             for(Point pointAComparer: points) {
                 distanceToCenter.add(point.compareTo(pointAComparer));
             }
             Collections.sort(distanceToCenter);
+            for(int i = 0; i <= circleSize; i++){
+                if(!center.equals(distanceToCenter.get(i)))
+                    map[center][distanceToCenter.get(i)] = 1 ;
+            }
         }
 
         List<Integer> amiProblematique = new ArrayList<>();
 
-        for(int j = 0; j < map[0].length; j++ ){ //o(n²)
+        for(int j = 0; j < map[0].length; j++ ){
             int sum = 0;
             for(int i = 0; i < map.length; i++){
                 sum += map[i][j];
