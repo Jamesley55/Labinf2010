@@ -1,6 +1,9 @@
 package tp4;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 
 
 public final class Interview {
@@ -61,7 +64,7 @@ public final class Interview {
 
 
 // found at https://stackoverflow.com/questions/2973041/a-keyvaluepair-in-java
-class KeyValue<K, V> implements Map.Entry<K, V>
+ class  KeyValue<K, V> implements Map.Entry<K, V>
 {
     private K key;
     private V value;
