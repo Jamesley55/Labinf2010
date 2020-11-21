@@ -1,10 +1,6 @@
 package tp4;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Collections;
-
+import java.util.*;
 
 
 public final class Interview {
@@ -34,34 +30,66 @@ public final class Interview {
      */
     public static List<Integer> getFriendsToRemove(Integer circleSize, List<Integer> centers, List<Point> points) {
         // TODO
-
+        // P = nombre de Point , N = nombre de center , C = circleSize
         int map[][] = new int [points.size()][points.size()];
-        for(Integer center: centers){
+        for(Integer center: centers){  // O(N)*(O(P)+ O(C) + O(nlog(P))) -> O(N*P)+ O(N*C)  + O(N*nlog(P))
             Point point = points.get(center);
-            List<Integer> distanceToCenter = new ArrayList<>();
-            for(Point pointAComparer: points) {
-                distanceToCenter.add(point.compareTo(pointAComparer));
-            }
-            Collections.sort(distanceToCenter);
-            for(int i = 0; i <= circleSize; i++){
-                if(!center.equals(distanceToCenter.get(i)))
-                    map[center][distanceToCenter.get(i)] = 1 ;
+            List<KeyValue<Integer,Integer>> distanceToCenter = new ArrayList<>();
+            for(int i = 0; i < points.size(); i++)//O(P)
+                distanceToCenter.add(new KeyValue(i , point.compareTo(points.get(i))));
+
+            distanceToCenter.sort(Comparator.comparing(KeyValue::getValue)); // O(nlog(P))
+
+
+            for(int i = 0; i <= circleSize; i++){  // O(C)
+                if(!center.equals(distanceToCenter.get(i).getKey()))
+                    map[center][distanceToCenter.get(i).getKey()] = 1 ;
             }
         }
 
         List<Integer> amiProblematique = new ArrayList<>();
-
-        for(int j = 0; j < map[0].length; j++ ){
+        for(int j = 0; j < map[0].length; j++ ){ // O(P)*O(P) -> O(P^2)
             int sum = 0;
-            for(int i = 0; i < map.length; i++){
+            for(int i = 0; i < map.length; i++) // O(P)
                 sum += map[i][j];
-            }
-            if(sum > 1){
+            if(sum > 1)
                 amiProblematique.add(j);
-            }
         }
-
-
         return amiProblematique;
     }
+}
+
+
+// found at https://stackoverflow.com/questions/2973041/a-keyvaluepair-in-java
+class KeyValue<K, V> implements Map.Entry<K, V>
+{
+    private K key;
+    private V value;
+
+    public KeyValue(K key, V value)
+    {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey()
+    {
+        return this.key;
+    }
+
+    public V getValue()
+    {
+        return this.value;
+    }
+
+    @Override
+    public V setValue(V value) {
+        return null;
+    }
+
+    public K setKey(K key)
+    {
+        return this.key = key;
+    }
+
 }
