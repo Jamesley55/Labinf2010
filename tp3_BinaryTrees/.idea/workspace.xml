@@ -27,23 +27,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AvlTree$BinaryNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/AvlTree$BinaryNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/AvlTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/AvlTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/AvlTreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/AvlTreeTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AvlTreeTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/AvlTreeTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AvlTreeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-AvlTreeTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AvlTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AvlTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AvlTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AvlTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +82,17 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Gradle.Tests in 'tp3_BinaryTrees.test'">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AvlTreeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -256,6 +257,7 @@
       <workItem from="1604437699585" duration="9788000" />
       <workItem from="1604604681816" duration="10599000" />
       <workItem from="1604872382130" duration="417000" />
+      <workItem from="1606063105989" duration="446000" />
     </task>
     <servers />
   </component>
@@ -279,26 +281,26 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="191" y="48" key="#Project_Structure/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1603743991285" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom" timestamp="1604898372201">
+    <state width="1398" height="202" key="GridCell.Tab.0.bottom" timestamp="1606063625837">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221949" />
-    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1604898372201" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center" timestamp="1604898372200">
+    <state width="1398" height="202" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1606063625837" />
+    <state width="1398" height="202" key="GridCell.Tab.0.center" timestamp="1606063625836">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221948" />
-    <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1604898372200" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left" timestamp="1604898372199">
+    <state width="1398" height="202" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1606063625836" />
+    <state width="1398" height="202" key="GridCell.Tab.0.left" timestamp="1606063625835">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221947" />
-    <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1604898372199" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right" timestamp="1604898372200">
+    <state width="1398" height="202" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1606063625835" />
+    <state width="1398" height="202" key="GridCell.Tab.0.right" timestamp="1606063625836">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604605221948" />
-    <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1604898372200" />
+    <state width="1398" height="202" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1606063625836" />
     <state x="191" y="48" key="SettingsEditor" timestamp="1603743816010">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
