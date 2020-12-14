@@ -5,11 +5,11 @@ import java.util.stream.Collectors;
 
 public class DetailMyWorld {
 
-    private static int continentIndex(Pixel country, List<Set<Integer>> Continents){
+    private static int indexContinent(Pixel pixel, List<Set<Integer>> Continents){
         int  indexOfContinent = -1;
         for (Set<Integer> listOfCountry : Continents) {
             indexOfContinent++;
-            for (Integer adj : country.adjacentPixel) {
+            for (Integer adj : pixel.adjacentPixel) {
                 if (listOfCountry.contains(adj)) {
                     return indexOfContinent;
                 }
@@ -24,7 +24,7 @@ public class DetailMyWorld {
                 Continents.add(new HashSet<>());
                 Continents.get(0).add(pixel.value);
             } else {
-                int continentIndex =  continentIndex(pixel,Continents);
+                int continentIndex =  indexContinent(pixel,Continents);
                 if ( continentIndex == -1) {
                     Continents.add(new HashSet<>());
                     Continents.get(Continents.size() - 1).add(pixel.value);
@@ -44,7 +44,7 @@ public class DetailMyWorld {
         visited[0] = true;
         queue.add(graph.get(0));
         while (queue.size() > 0){
-            currentPixel = queue.poll();
+            currentPixel  = queue.poll();
             addToContinent(currentPixel, Continents);
             for(Integer i: currentPixel.adjacentPixel){
                 int index = graph.indexOf(new Pixel(i));
@@ -131,6 +131,7 @@ public class DetailMyWorld {
     }
 
     void addAdjacentPixel(ArrayList<ArrayList<Integer>> world, int i, int j){
+        // left pixel
         if (i - 1 > 0)
             this.addAdjacent(world.get(i - 1).get(j));
         // right pixel

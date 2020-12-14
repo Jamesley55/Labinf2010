@@ -45,6 +45,7 @@ public class Maze {
             visitedPath.add(min);
 
             for(Pixel adjacent : min.adjacentPixel){
+
                 if(adjacent.distance > min.distance + 1){
                     adjacent.distance = min.distance + 1;
                 }
@@ -100,7 +101,7 @@ public class Maze {
 
     // trouve le voisin a la position demander
     void findAdjacent(int x, int y, ArrayList<Pixel> pathways){
-        if(y >= 0 && x >= 0 &&  y < Maze.maze.size() && x < Maze.maze.get(0).size()){
+        if(y >= 0 && x >= 0 &&  x < Maze.maze.size() && y < Maze.maze.get(0).size()){
 
             Pixel adjacent = new Pixel(x, y, Maze.maze.get(y).get(x));
             if(pathways.contains(adjacent)){

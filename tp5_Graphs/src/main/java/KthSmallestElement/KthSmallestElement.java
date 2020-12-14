@@ -1,5 +1,7 @@
 package KthSmallestElement;
 
+import java.util.ArrayList;
+
 public class KthSmallestElement {
     /**
      * Explication de votre complexité temporelle
@@ -21,10 +23,9 @@ public class KthSmallestElement {
      * @return `K`th smallest element in `matrix`, null if non-existent
      */
     static public <T extends Comparable<T>> T findKthSmallestElement(final T[][] matrix, final int k) {
+
         return null;
     }
-
-
 
 }
 
@@ -49,8 +50,6 @@ public class KthSmallestElement {
             return -1;
         if(pixel.value == null )
             return 1;
-
-
         return pixel.value.compareTo(this.value);
     }
 
