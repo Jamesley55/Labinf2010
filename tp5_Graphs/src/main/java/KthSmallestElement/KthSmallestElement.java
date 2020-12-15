@@ -1,6 +1,5 @@
 package KthSmallestElement;
-
-import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class KthSmallestElement {
     /**
@@ -24,16 +23,57 @@ public class KthSmallestElement {
      */
     static public <T extends Comparable<T>> T findKthSmallestElement(final T[][] matrix, final int k) {
 
+
        if(matrix == null || k > matrix.length*matrix[0].length-1){
            return null;
        }
-       Node[] heap = new Node[matrix.length];
+
+      /* Node[] heap = new Node[matrix.length];
        for(int row =0; row <matrix.length;row++){
            heap[row] = new Node(0,row,matrix[row][0]);
        }
        return null;
 
+       */
+
+        int ke = k+1;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                pq.offer((Integer) matrix[i][j]);
+            }
+        }
+        while (--ke > 0) {
+            pq.poll();
+        }
+        return (T) pq.peek();
+
+
+
+       /*  PriorityQueue<Node>pq=new PriorityQueue<>();
+        int n=matrix.length;
+        for(int i=0;i<n;i++)
+            pq.add(new Node(0, i, (Integer) matrix[0][i]));
+
+        Node node = new Node(0,0, null);
+
+
+        for(int j=1;j<k;j++)
+        {
+            node =pq.poll();
+            T nextValue = node.row < matrix.length - 1 ?
+                    matrix[node.collum+1][node.row] : null;
+
+
+            pq.add(new Node(node.collum+1, node.row, nextValue));
+        }
+
+        return (T) pq.poll().value;
+
+        */
     }
+
+
 
     static void swap(int i, int min, Node[] arr)
     {
@@ -48,6 +88,10 @@ public class KthSmallestElement {
 
     }
 }
+
+
+
+
 
  class Node implements Comparable{
     int collum;
