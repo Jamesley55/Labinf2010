@@ -3,13 +3,19 @@ import java.util.PriorityQueue;
 
 public class KthSmallestElement {
     /**
-     * Explication de votre complexité temporelle
-     * tout d'abord, nous avons mis tout les elements de la premiere colonne de la matrice dans un priorityQueue
+     * Explication de votre complexité temporelle:
+     * Tout d'abord, nous avons mis tout les elements de la premiere colonne de la matrice dans un priorityQueue
      * le PriorityQueue a une complexite temporelle log(n) pour l'appelle a la fonction "add"
      * le "for loop" sur la premiere colonne et la fonction "add" du PriorityQueue
      * nous donne une complexite temporelle O(cLog(c)).
+     * Ensuite, dans une boucle "for" de k iteration qui est de complexite temporelle k, nous appellons
+     * la fonction "poll", de complexite log(c), qui enleve la plus petite valeur de la colonne,
+     * puis avec la fonction "add", on rajoute la valeur a gauche de la precedent dans la colonne,
+     * donc une complexite de log(C).
+     * Ensemble, Cela nous donne une complexite temporelle de O(K) * (O(log(c)) + O(log(c))) = O(klog(c)).
+     * Et Finalement, une complexite totale de O(c*log(c)) + O(k*log(c)) = O((c+k)log(c))
      *
-     * Explication de votre complexité spatiale
+     * Explication de votre complexité spatiale:
      * la complexite spacialle maximum est de O(c) puisque dans le priorityQueue contiendrais au plus (c) valeurs.
      * apres avoir cree le priority avec (c) valeur on enleve toujours une valeur
      * et ensuite on rajoute au maximum 1 valeur lors de la recherche du kth Smallest Element.
