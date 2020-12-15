@@ -10,7 +10,9 @@ public class KthSmallestElement {
      * nous donne une complexite temporelle O(cLog(c)).
      *
      * Explication de votre complexité spatiale
-     *
+     * la complexite spacialle maximum est de O(c) puisque dans le priorityQueue contiendrais au plus (c) valeurs.
+     * apres avoir cree le priority avec (c) valeur on enleve toujours une valeur
+     * et ensuite on rajoute au maximum 1 valeur lors de la recherche du kth Smallest Element.
      *
      */
     /** TODO Worst case
@@ -48,7 +50,7 @@ public class KthSmallestElement {
             // quand il y a une valeur a gauche
             // on le rajoute dans le pq
             if(headNode.x < matrix[headNode.y].length-1){
-                // O(log(c+1))
+                // O(log(c))
                 pq.add(new Node(headNode.x+1, headNode.y, (Integer) matrix[headNode.y][headNode.x+1]));
             }
             // complexite temporelle max total
