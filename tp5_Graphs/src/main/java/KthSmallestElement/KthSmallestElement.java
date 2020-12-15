@@ -24,33 +24,53 @@ public class KthSmallestElement {
      */
     static public <T extends Comparable<T>> T findKthSmallestElement(final T[][] matrix, final int k) {
 
-        return null;
+       if(matrix == null || k > matrix.length*matrix[0].length-1){
+           return null;
+       }
+       Node[] heap = new Node[matrix.length];
+       for(int row =0; row <matrix.length;row++){
+           heap[row] = new Node(0,row,matrix[row][0]);
+       }
+       return null;
+
     }
 
+    static void swap(int i, int min, Node[] arr)
+    {
+        Node temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
+
+    static void heapify(Node[] heap, int index){
+        int RightChild = 2*index +2;
+        int leftChild = 2*index +1;
+
+    }
 }
 
- class Pixel implements Comparable{
-    int x;
-    int y;
+ class Node implements Comparable{
+    int collum;
+    int row;
     Comparable value;
 
-    public Pixel(int x, int y, Comparable value){
-        this.x = x;
-        this.y = y;
+    public Node(int collum, int row, Comparable value){
+        this.collum = collum;
+        this.row = row;
         this.value = value;
     }
 
     @Override
     public int compareTo(Object object) {
-        if (!(object instanceof Pixel)) {
+        if (!(object instanceof Node)) {
             throw new IllegalArgumentException("Object o is not of type Pixel");
         }
-        Pixel pixel = (Pixel) object;
+        Node node = (Node) object;
         if(this.value == null )
             return -1;
-        if(pixel.value == null )
+        if(node.value == null )
             return 1;
-        return pixel.value.compareTo(this.value);
+        return node.value.compareTo(this.value);
     }
 
 }

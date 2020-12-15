@@ -3,6 +3,7 @@ package Maze;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 public class Maze {
     /** TODO
      * Returns the distance of the shortest path within the maze

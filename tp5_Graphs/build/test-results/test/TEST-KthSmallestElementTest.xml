@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="KthSmallestElementTest" tests="9" skipped="0" failures="9" errors="0" timestamp="2020-12-14T20:59:24" hostname="Jamesley-Macbook.local" time="0.186">
+<testsuite name="KthSmallestElementTest" tests="9" skipped="0" failures="9" errors="0" timestamp="2020-12-15T02:59:20" hostname="Jamesley-Macbook.local" time="0.273">
   <properties/>
-  <testcase name="inputsValidity()" classname="KthSmallestElementTest" time="0.018">
+  <testcase name="inputsValidity()" classname="KthSmallestElementTest" time="0.014">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -88,7 +88,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="complexMatrix()" classname="KthSmallestElementTest" time="0.001">
+  <testcase name="complexMatrix()" classname="KthSmallestElementTest" time="0.0">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -262,7 +262,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="simpleRectangleShape()" classname="KthSmallestElementTest" time="0.002">
+  <testcase name="simpleRectangleShape()" classname="KthSmallestElementTest" time="0.001">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -349,7 +349,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="input00()" classname="KthSmallestElementTest" time="0.026">
+  <testcase name="input00()" classname="KthSmallestElementTest" time="0.027">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -436,7 +436,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="input01()" classname="KthSmallestElementTest" time="0.026">
+  <testcase name="input01()" classname="KthSmallestElementTest" time="0.033">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -523,7 +523,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="input02()" classname="KthSmallestElementTest" time="0.029">
+  <testcase name="input02()" classname="KthSmallestElementTest" time="0.042">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -610,7 +610,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="input03()" classname="KthSmallestElementTest" time="0.044">
+  <testcase name="input03()" classname="KthSmallestElementTest" time="0.089">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
@@ -697,7 +697,7 @@
 	at java.base/java.lang.Thread.run(Thread.java:832)
 </failure>
   </testcase>
-  <testcase name="input04()" classname="KthSmallestElementTest" time="0.032">
+  <testcase name="input04()" classname="KthSmallestElementTest" time="0.06">
     <failure message="org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: not &lt;null&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
