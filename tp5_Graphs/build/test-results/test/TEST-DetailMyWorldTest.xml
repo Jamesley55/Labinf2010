@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="DetailMyWorldTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-12-15T17:39:00" hostname="Jamesley-Macbook.local" time="0.399">
+<testsuite name="DetailMyWorldTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-12-15T19:21:26" hostname="Jamesley-Macbook.local" time="0.43">
   <properties/>
-  <testcase name="input00()" classname="DetailMyWorldTest" time="0.021"/>
+  <testcase name="input00()" classname="DetailMyWorldTest" time="0.029"/>
   <testcase name="input01()" classname="DetailMyWorldTest" time="0.002"/>
-  <testcase name="input02()" classname="DetailMyWorldTest" time="0.014"/>
+  <testcase name="input02()" classname="DetailMyWorldTest" time="0.016"/>
   <testcase name="input03()" classname="DetailMyWorldTest" time="0.031"/>
-  <testcase name="input04()" classname="DetailMyWorldTest" time="0.045"/>
-  <testcase name="input05()" classname="DetailMyWorldTest" time="0.043"/>
-  <testcase name="input06()" classname="DetailMyWorldTest" time="0.046"/>
-  <testcase name="input07()" classname="DetailMyWorldTest" time="0.053"/>
-  <testcase name="input08()" classname="DetailMyWorldTest" time="0.071"/>
-  <testcase name="input09()" classname="DetailMyWorldTest" time="0.067"/>
+  <testcase name="input04()" classname="DetailMyWorldTest" time="0.041"/>
+  <testcase name="input05()" classname="DetailMyWorldTest" time="0.067"/>
+  <testcase name="input06()" classname="DetailMyWorldTest" time="0.047"/>
+  <testcase name="input07()" classname="DetailMyWorldTest" time="0.06"/>
+  <testcase name="input08()" classname="DetailMyWorldTest" time="0.075"/>
+  <testcase name="input09()" classname="DetailMyWorldTest" time="0.055"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

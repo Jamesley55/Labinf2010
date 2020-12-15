@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MazeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-12-15T17:39:01" hostname="Jamesley-Macbook.local" time="3.373">
+<testsuite name="MazeTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2020-12-15T19:21:26" hostname="Jamesley-Macbook.local" time="5.095">
   <properties/>
-  <testcase name="inputsValidity()" classname="MazeTest" time="0.001"/>
-  <testcase name="input00()" classname="MazeTest" time="0.014"/>
-  <testcase name="input01()" classname="MazeTest" time="0.01"/>
-  <testcase name="input02()" classname="MazeTest" time="0.041"/>
-  <testcase name="input03()" classname="MazeTest" time="0.044"/>
-  <testcase name="input04()" classname="MazeTest" time="0.037"/>
-  <testcase name="input05()" classname="MazeTest" time="0.045"/>
-  <testcase name="input06()" classname="MazeTest" time="0.084"/>
-  <testcase name="input07()" classname="MazeTest" time="0.069"/>
-  <testcase name="input08()" classname="MazeTest" time="0.688"/>
-  <testcase name="input09()" classname="MazeTest" time="2.334"/>
+  <testcase name="inputsValidity()" classname="MazeTest" time="0.002"/>
+  <testcase name="input00()" classname="MazeTest" time="0.009"/>
+  <testcase name="input01()" classname="MazeTest" time="0.006"/>
+  <testcase name="input02()" classname="MazeTest" time="0.022"/>
+  <testcase name="input03()" classname="MazeTest" time="0.023"/>
+  <testcase name="input04()" classname="MazeTest" time="0.044"/>
+  <testcase name="input05()" classname="MazeTest" time="0.094"/>
+  <testcase name="input06()" classname="MazeTest" time="0.144"/>
+  <testcase name="input07()" classname="MazeTest" time="0.133"/>
+  <testcase name="input08()" classname="MazeTest" time="1.215"/>
+  <testcase name="input09()" classname="MazeTest" time="3.395"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
